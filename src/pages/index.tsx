@@ -1,9 +1,11 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import { MotionDiv } from "~/components";
 import { Header } from "~/components/header";
+import { Link } from "react-scroll";
+import setAnchor from "~/setAnchor";
 
 const Home: NextPage = () => {
   return (
@@ -56,7 +58,16 @@ const Home: NextPage = () => {
 
               <div className="pt-5">
                 {["about", "experience", "blog"].map((section) => (
-                  <Link href={`#${section}`} key={section}>
+                  <Link
+                    to={section}
+                    smooth={true}
+                    duration={500}
+                    offset={-100} // Adjust the offset as per your design
+                    key={section}
+                    onClick={() => {
+                      setAnchor(section);
+                    }}
+                  >
                     <button className="text-sub-text rounded-full border border-base px-6 py-2 text-sm uppercase tracking-widest transition-all hover:border-secondary/40 hover:text-secondary/40">
                       {section}
                     </button>

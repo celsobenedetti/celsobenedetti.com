@@ -1,8 +1,9 @@
-import Link from "next/link";
+import { Link } from "react-scroll";
 import { FaHome } from "react-icons/fa";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { SlEnvolope } from "react-icons/sl";
 import { MotionDiv } from ".";
+import setAnchor from "~/setAnchor";
 
 export const Header = (props: { animate?: boolean }) => {
   const { animate = true } = props;
@@ -17,7 +18,15 @@ export const Header = (props: { animate?: boolean }) => {
         })}
         className="flex items-center"
       >
-        <Link href="/#me">
+        <Link
+          to="me"
+          smooth={true}
+          duration={500}
+          offset={-100}
+          onClick={() => {
+            setAnchor("me");
+          }}
+        >
           <FaHome
             className="h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300"
             title="Go home"
@@ -46,15 +55,12 @@ export const Header = (props: { animate?: boolean }) => {
         })}
         className="flex items-center"
       >
-        <Link
-          href="/#final-words"
-          className="group flex cursor-pointer items-center"
-        >
+        <div className="group flex cursor-pointer items-center">
           <SlEnvolope className="h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors group-hover:fill-gray-300" />
           <span className="font-cal hidden text-sm uppercase text-gray-400 group-hover:text-gray-300 md:inline-flex">
             Contact
           </span>
-        </Link>
+        </div>
       </MotionDiv>
     </header>
   );
