@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaHome } from "react-icons/fa";
-import { SiDiscord, SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import { SlEnvolope } from "react-icons/sl";
 import { MotionDiv } from ".";
 
