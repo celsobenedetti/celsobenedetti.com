@@ -8,7 +8,7 @@ export const Header = (props: { animate?: boolean }) => {
   const { animate = true } = props;
 
   return (
-    <header className="sticky top-0 z-50 mx-auto flex max-w-7xl items-start justify-between bg-dark p-5 pt-8 xl:items-center">
+    <header className="sticky top-0 z-50 mx-auto flex max-w-7xl items-start justify-between bg-default p-5 pt-8 xl:items-center">
       <MotionDiv
         {...(animate && {
           initial: { opacity: 0, x: -500 },
