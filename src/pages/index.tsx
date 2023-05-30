@@ -16,9 +16,9 @@ const Home: NextPage = () => {
 
       <Header />
 
-      <main className="bg-default flex min-h-screen flex-col items-center justify-center">
+      <main className="container mx-auto max-w-7xl flex-1 px-1 md:px-4">
         <section id="me">
-          <div className="flex h-screen w-screen flex-col items-center justify-center  space-y-8 overflow-hidden text-center">
+          <div className="flex h-screen flex-col items-center justify-center space-y-8 overflow-hidden text-center">
             <MotionDiv
               initial={{ opacity: 0 }}
               animate={{
@@ -72,7 +72,7 @@ const Home: NextPage = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
-            className="relative mx-auto flex min-h-screen max-w-full flex-col items-center gap-12 overflow-hidden px-4 py-24 text-left md:px-10"
+            className="relative mx-auto flex min-h-screen max-w-full flex-col items-center gap-16 overflow-hidden px-4 py-24 text-left md:px-10"
           >
             <h2 className="font-cal text-2xl uppercase tracking-[15px] text-subtext md:tracking-[20px]">
               About
@@ -94,7 +94,7 @@ const Home: NextPage = () => {
                 />
               </MotionDiv>
 
-              <div className="space-y-4 px-0 py-24 md:px-10 md:py-0">
+              <div className="space-y-4 px-0 py-24 md:px-10 md:py-0 md:pr-20">
                 <p>
                   I&apos;m a software engineer from Brazil. I&apos;m passionate
                   about learning and becoming ever more knowledgeable in my
