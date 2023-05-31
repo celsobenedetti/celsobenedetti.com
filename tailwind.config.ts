@@ -9,11 +9,12 @@ export default {
     extend: {
       colors: {
         base: "#232634",
+        mantle: "#292c3c",
         secondary: "#ca9ee6",
         text: "#c6d0f5",
         subtext: "#949cbb",
         overlay: "#949cbb",
-        surface: "#303446",
+        surface: "#3b4057",
       },
     },
   },

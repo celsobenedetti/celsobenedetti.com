@@ -6,6 +6,7 @@ import { Link } from "react-scroll";
 import { Header } from "~/components/header";
 import { MotionDiv } from "~/components";
 import setAnchor from "~/setAnchor";
+import { ExperiencesSection } from "~/components/experiences";
 
 const Home: NextPage = () => {
   return (
@@ -101,7 +102,7 @@ const Home: NextPage = () => {
                   src="/images/caju.png"
                   fill
                   alt="Me and Caju"
-                  className="rounded-full object-cover md:rounded-lg"
+                  className="rounded-full object-cover md:rounded-xl"
                 />
               </MotionDiv>
 
@@ -131,6 +132,8 @@ const Home: NextPage = () => {
             </div>
           </MotionDiv>
         </section>
+
+        <ExperiencesSection id="experience" />
       </main>
     </>
   );
