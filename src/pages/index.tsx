@@ -28,7 +28,7 @@ const Home: NextPage = () => {
 
       <main>
         <section id="me">
-          <div className="flex h-screen flex-col items-center justify-center space-y-8 overflow-hidden text-center">
+          <div className="tooltip flex h-screen flex-col items-center justify-center space-y-8 overflow-hidden text-center">
             <MotionDiv
               initial={{ opacity: 0 }}
               animate={{
@@ -41,11 +41,11 @@ const Home: NextPage = () => {
               }}
               className="relative flex items-center justify-center"
             >
-              <div className="absolute mt-52 h-[200px] w-[200px] animate-ping rounded-full border border-surface" />
-              <div className="absolute mt-52 h-[300px] w-[300px] rounded-full border border-surface" />
-              <div className="absolute mt-52 h-[500px] w-[500px] rounded-full border border-surface" />
-              <div className="absolute mt-52 h-[650px] w-[650px] animate-pulse rounded-full border border-secondary" />
-              <div className="absolute mt-52 h-[800px] w-[800px] rounded-full border border-surface " />
+              <div className="absolute   mt-52 h-[150px] w-[150px] animate-ping rounded-full border border-surface md:h-[200px] md:w-[200px]" />
+              <div className="absolute mt-52 h-[275px] w-[275px] rounded-full border border-surface md:h-[300px] md:w-[300px]" />
+              <div className="absolute mt-52 h-[400px] w-[400px] rounded-full border border-surface md:h-[500px] md:w-[500px]" />
+              <div className="absolute mt-52 h-[550px] w-[550px] animate-pulse rounded-full border border-secondary md:h-[650px] md:w-[650px]" />
+              <div className="absolute mt-52 h-[700px] w-[700px] rounded-full border border-surface md:h-[800px] md:w-[800px] " />
             </MotionDiv>
 
             <Image
