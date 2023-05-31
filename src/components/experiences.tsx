@@ -91,7 +91,6 @@ export function ExperiencesSection({ id }: { id: string }) {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
-        // className="relative mx-auto flex min-h-screen max-w-full flex-col items-center gap-12 overflow-hidden px-4 py-24 text-left md:px-10"
         className="relative mx-auto flex min-h-screen max-w-full flex-col items-center gap-12 overflow-hidden px-4 py-24 text-left md:px-10"
       >
         <h3 className="font-cal text-2xl uppercase tracking-[15px] text-subtext md:tracking-[20px]">
@@ -172,8 +171,6 @@ export function ExperienceCard(
         <div
           className={
             "bg-accent-500 absolute right-7 top-0 rounded-lg p-2 md:p-4"
-            // props.note === "Education" && "bg-sky-800",
-            // props.note === "Open Source" && "bg-red-900"
           }
         >
           {props.note}
@@ -183,7 +180,6 @@ export function ExperienceCard(
       <div className="px1 flex min-w-full max-w-full flex-col md:px-10">
         <h2 className="text-3xl font-medium md:text-4xl">{props.title}</h2>
         <p className="mt-1 text-lg font-bold md:text-2xl">{props.subtitle}</p>
-        {/* <div className="scroll scrollbar-thumb-accent-500/80 my-2 flex w-full shrink-0 space-x-2 overflow-x-auto scrollbar-thin scrollbar-track-gray-400/20 "> */}
         <div className="scroll scrollbar-thumb-accent-500/80 z-1 my-2 flex w-full shrink-0 space-x-2 overflow-auto pb-2 scrollbar-thin scrollbar-track-gray-400/20">
           {props.technologiesIcons?.map((Icon, index) => (
             <div key={index}>
