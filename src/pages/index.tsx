@@ -41,7 +41,7 @@ const Home: NextPage = () => {
               }}
               className="relative flex items-center justify-center"
             >
-              <div className="absolute   mt-52 h-[150px] w-[150px] animate-ping rounded-full border border-surface md:h-[200px] md:w-[200px]" />
+              <div className="absolute mt-52 h-[150px] w-[150px] animate-ping-slow rounded-full border border-surface duration-[10000] md:h-[200px] md:w-[200px]" />
               <div className="absolute mt-52 h-[275px] w-[275px] rounded-full border border-surface md:h-[300px] md:w-[300px]" />
               <div className="absolute mt-52 h-[400px] w-[400px] rounded-full border border-surface md:h-[500px] md:w-[500px]" />
               <div className="absolute mt-52 h-[550px] w-[550px] animate-pulse rounded-full border border-secondary md:h-[650px] md:w-[650px]" />

@@ -16,6 +16,9 @@ export default {
         overlay: "#949cbb",
         surface: "#3b4057",
       },
+      animation: {
+        "ping-slow": "ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite",
+      },
     },
   },
   plugins: [require("tailwind-scrollbar")],
