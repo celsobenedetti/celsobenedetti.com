@@ -5,70 +5,74 @@ import {
   SiAngular,
   SiAnsible,
   SiJavascript,
+  SiJest,
   SiMicrosoftsqlserver,
+  SiMysql,
   SiNodedotjs,
   SiPython,
+  SiRuby,
+  SiRubyonrails,
   SiSpring,
   SiTypescript,
   SiVault,
+  SiVuedotjs,
 } from "react-icons/si";
 import { MotionDiv } from ".";
 import { useState } from "react";
 
-type ExperienceIcon = { Icon: IconType; desc: string };
-
 export interface Experience {
   note?: string;
   img: string;
+  url?: string;
   title: string;
   subtitle: string;
-  technologiesIcons?: ExperienceIcon[];
+  technologiesIcons?: IconType[];
   period: [string, string];
   bullets: string[];
 }
 
 export const workExperiences: Experience[] = [
   {
-    note: "Education",
+    note: "Work",
     img: "https://companieslogo.com/img/orig/DELL-f7f7f0be.png?t=1634108492",
     title: "Dell Technologies",
     subtitle: "Software Engineer 2",
+    url: "https://www.dell.com/en-us",
     technologiesIcons: [
-      { Icon: SiAngular, desc: "Angular" },
-      { Icon: SiSpring, desc: "" },
-      { Icon: SiNodedotjs, desc: "" },
-      { Icon: FaJava, desc: "" },
-      { Icon: SiJavascript, desc: "" },
-      { Icon: SiTypescript, desc: "" },
-      { Icon: SiPython, desc: "" },
-      { Icon: FaDocker, desc: "" },
-      { Icon: SiVault, desc: "" },
-      { Icon: SiAnsible, desc: "" },
-      { Icon: FaGitlab, desc: "" },
-      { Icon: SiMicrosoftsqlserver, desc: "" },
+      SiAngular,
+      SiSpring,
+      SiNodedotjs,
+      FaJava,
+      SiJavascript,
+      SiTypescript,
+      SiPython,
+      FaDocker,
+      SiVault,
+      SiAnsible,
+      FaGitlab,
+      SiMicrosoftsqlserver,
     ],
     period: ["2022", "present"],
     bullets: ["I do this", "And that", "And the other thing"],
   },
 
   {
-    note: "Education",
-    img: "https://companieslogo.com/img/orig/DELL-f7f7f0be.png?t=1634108492",
-    title: "Dell Technologies",
-    subtitle: "Software Engineer 2",
+    note: "Work",
+    img: "https://jera.com.br/images/logo-facebook.png",
+    title: "Jera Apps",
+    subtitle: "Web Developer",
+    url: "https://jera.com.br/",
     technologiesIcons: [
-      { Icon: SiAngular, desc: "Angular" },
-      { Icon: SiSpring, desc: "" },
-      { Icon: SiNodedotjs, desc: "" },
-      { Icon: FaJava, desc: "" },
-      { Icon: SiJavascript, desc: "" },
-      { Icon: SiTypescript, desc: "" },
-      { Icon: SiPython, desc: "" },
-      { Icon: FaDocker, desc: "" },
-      { Icon: SiVault, desc: "" },
-      { Icon: SiAnsible, desc: "" },
-      { Icon: FaGitlab, desc: "" },
-      { Icon: SiMicrosoftsqlserver, desc: "" },
+      SiVuedotjs,
+      SiRubyonrails,
+      SiNodedotjs,
+      SiRuby,
+      SiJavascript,
+      SiTypescript,
+      FaDocker,
+      SiJest,
+      SiMysql,
+      FaGitlab,
     ],
     period: ["2022", "present"],
     bullets: ["I do this", "And that", "And the other thing"],
@@ -112,12 +116,14 @@ export function ExperiencesSection({ id }: { id: string }) {
     </section>
   );
 
+  type ExperienceType = "Work" | "Education";
+
   function ExperienceTypeButton({
     isSelected,
     text,
   }: {
     isSelected: boolean;
-    text: string;
+    text: ExperienceType;
   }) {
     return (
       <button
@@ -152,12 +158,14 @@ export function ExperienceCard(
         viewport={{ once: true }}
         className="relative h-32 w-32 xl:h-[200px] xl:w-[200px]"
       >
-        <Image
-          src={props.img}
-          fill
-          alt=""
-          className="rounded-full object-cover object-center"
-        />
+        <a href={props.url} target="_blank">
+          <Image
+            src={props.img}
+            fill
+            alt={props.title}
+            className="cursor-pointer rounded-full object-contain object-center"
+          />
+        </a>
       </MotionDiv>
 
       {props.note && (
@@ -172,14 +180,14 @@ export function ExperienceCard(
         </div>
       )}
 
-      <div className="max-w-full px-0 md:px-10">
-        <h4 className="text-2xl font-medium md:text-4xl">{props.title}</h4>
+      <div className="px1 flex min-w-full max-w-full flex-col md:px-10">
+        <h2 className="text-3xl font-medium md:text-4xl">{props.title}</h2>
         <p className="mt-1 text-lg font-bold md:text-2xl">{props.subtitle}</p>
         {/* <div className="scroll scrollbar-thumb-accent-500/80 my-2 flex w-full shrink-0 space-x-2 overflow-x-auto scrollbar-thin scrollbar-track-gray-400/20 "> */}
         <div className="scroll scrollbar-thumb-accent-500/80 z-1 my-2 flex w-full shrink-0 space-x-2 overflow-auto pb-2 scrollbar-thin scrollbar-track-gray-400/20">
-          {props.technologiesIcons?.map(({ Icon }, index) => (
+          {props.technologiesIcons?.map((Icon, index) => (
             <div key={index}>
-              <Icon className="h-8 w-8 shrink-0" />
+              <Icon className="h-6 w-6 shrink-0 md:h-8 md:w-8" />
             </div>
           ))}
         </div>

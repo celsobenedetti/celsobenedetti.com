@@ -12,6 +12,7 @@ const config = {
     remotePatterns: [
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
       { protocol: "https", hostname: "companieslogo.com" },
+      { protocol: "https", hostname: "jera.com.br" },
     ],
   },
   /**
