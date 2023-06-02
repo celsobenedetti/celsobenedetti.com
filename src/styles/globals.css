@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply scroll-smooth bg-crust font-sans text-text antialiased scrollbar-none;
-  }
+body {
+  @apply scroll-smooth bg-crust font-sans text-text antialiased scrollbar-none;
+}
 
-  main {
-    @apply container mx-auto max-w-7xl flex-1 px-1 md:px-4;
-  }
+main {
+  @apply container mx-auto max-w-7xl flex-1 px-1 md:px-4;
+}
+
+div.swiper-scrollbar-drag {
+  @apply bg-mantle;
 }

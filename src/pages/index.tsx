@@ -65,7 +65,7 @@ const Home: NextPage = () => {
               </h1>
 
               <div className="pt-5">
-                {["about", "experience", "blog"].map((section) => (
+                {["about", "experience"].map((section) => (
                   <Link
                     to={section}
                     smooth={true}
@@ -141,6 +141,10 @@ const Home: NextPage = () => {
         </section>
 
         <ExperiencesSection id="experience" />
+
+        <footer className="flex h-16 items-center justify-center gap-2 text-overlay">
+          Made with Next.js, Tailwindcss, Framer and Swiper.js
+        </footer>
       </main>
     </>
   );
