@@ -1,15 +1,29 @@
 import Image from "next/image";
-import { FaDocker, FaGitlab, FaJava } from "react-icons/fa";
+import {
+  FaAws,
+  FaDocker,
+  FaGitlab,
+  FaJava,
+  FaLinux,
+  FaNodeJs,
+} from "react-icons/fa";
 import { type IconType } from "react-icons/lib";
 import {
   SiAngular,
   SiAnsible,
+  SiC,
+  SiCss3,
+  SiHtml5,
   SiJavascript,
   SiJest,
   SiMicrosoftsqlserver,
+  SiMongodb,
   SiMysql,
   SiNodedotjs,
+  SiPostgresql,
+  SiPrisma,
   SiPython,
+  SiReact,
   SiRuby,
   SiRubyonrails,
   SiSpring,
@@ -17,11 +31,19 @@ import {
   SiVault,
   SiVuedotjs,
 } from "react-icons/si";
+import { FaUniversity } from "react-icons/fa";
+import { ImDatabase } from "react-icons/im";
+import { TbBinaryTree, TbLambda, TbMathIntegralX } from "react-icons/tb";
+import { GiProcessor } from "react-icons/gi";
+import { LuNetwork } from "react-icons/lu";
+import { AiOutlineFieldBinary } from "react-icons/ai";
+
 import { MotionDiv } from ".";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { SlGraph } from "react-icons/sl";
 
 export interface Experience {
-  note?: string;
+  icon?: IconType;
   img: string;
   title: string;
   subtitle: string;
@@ -32,7 +54,6 @@ export interface Experience {
 
 export const workExperiences: Experience[] = [
   {
-    note: "Work",
     img: "https://companieslogo.com/img/orig/DELL-f7f7f0be.png?t=1634108492",
     title: "Dell Technologies",
     subtitle: "Software Engineer 2",
@@ -55,7 +76,6 @@ export const workExperiences: Experience[] = [
   },
 
   {
-    note: "Work",
     img: "https://jera.com.br/images/logo-facebook.png",
     title: "Jera Apps",
     subtitle: "Web Developer",
@@ -71,53 +91,51 @@ export const workExperiences: Experience[] = [
       SiMysql,
       FaGitlab,
     ],
-    period: ["2022", "present"],
+    period: ["2022/1", "2022/11"],
     bullets: ["I do this", "And that", "And the other thing"],
   },
 ];
 
 export const educationExperiences: Experience[] = [
   {
-    note: "Education",
+    icon: FaUniversity,
     img: "https://www.unifal-mg.edu.br/portal/wp-content/uploads/sites/52/2020/10/unifal-mg_logo_borda_02.png",
-    title: "Unifal",
+    title: "Universidade Federal de Alfenas",
     subtitle: "Bachelor in Computer Science",
     technologiesIcons: [
-      SiAngular,
-      SiSpring,
-      SiNodedotjs,
-      FaJava,
-      SiJavascript,
-      SiTypescript,
-      SiPython,
-      FaDocker,
-      SiVault,
-      SiAnsible,
-      FaGitlab,
-      SiMicrosoftsqlserver,
+      SiC,
+      GiProcessor,
+      TbBinaryTree,
+      TbLambda,
+      TbMathIntegralX,
+      SlGraph,
+      LuNetwork,
+      ImDatabase,
+      FaLinux,
     ],
     period: ["2016", "2023"],
     bullets: ["I do this", "And that", "And the other thing"],
   },
 
   {
-    note: "Education",
-    img: "https://uploads-ssl.webflow.com/62235d098ddf9185c2d74422/6255f8bd6ee68d19d7193a3c_gifdriven%20(1).gif",
+    img: "https://uploads-ssl.webflow.com/62235d098ddf9185c2d74422/622c0e0746587f694e5361b5_Driven_pink-p-500.png",
     title: "Driven Educattion",
     subtitle: "Full-Stack Web Development Bootcamp",
     technologiesIcons: [
-      SiVuedotjs,
-      SiRubyonrails,
-      SiNodedotjs,
-      SiRuby,
+      SiHtml5,
+      SiCss3,
       SiJavascript,
       SiTypescript,
+      SiReact,
+      FaNodeJs,
       FaDocker,
+      SiPrisma,
+      SiMongodb,
+      SiPostgresql,
       SiJest,
-      SiMysql,
-      FaGitlab,
+      FaAws,
     ],
-    period: ["2022/01", "2022/10"],
+    period: ["2022/1", "2022/10"],
     bullets: ["I do this", "And that", "And the other thing"],
   },
 ];
@@ -128,7 +146,6 @@ export function ExperiencesSection({ id }: { id: string }) {
 
   // TODO: implement section scrollY event to highlight experience cards
   const sectionRef = useRef<HTMLElement>(null);
-  const sectionTopOffset = () => sectionRef.current?.offsetTop;
 
   return (
     <section id={id} ref={sectionRef}>
@@ -210,11 +227,10 @@ export function ExperiencesSection({ id }: { id: string }) {
   }
 }
 
-export function ExperienceCard(
-  props: Experience & {
-    isSelected: boolean;
-  }
-) {
+export function ExperienceCard({
+  icon: Icon,
+  ...props
+}: Experience & { isSelected: boolean }) {
   return (
     <article
       className={`content relative flex w-full flex-shrink-0 snap-center flex-col items-center space-y-7  break-normal rounded-2xl bg-mantle p-10  transition-opacity duration-200 hover:opacity-100 md:w-[600px] xl:w-[900px] ${
@@ -232,17 +248,13 @@ export function ExperienceCard(
           src={props.img}
           fill
           alt={props.title}
-          className="min-w-32 object-contain object-center "
+          className="min-w-[10rem] self-stretch object-contain object-center"
         />
       </MotionDiv>
 
-      {props.note && (
-        <div
-          className={
-            "bg-accent-500 absolute right-7 top-0 rounded-lg p-2 md:p-4"
-          }
-        >
-          {props.note}
+      {Icon && (
+        <div className="absolute right-10 top-0 flex h-10 w-10 rounded-lg p-2 md:p-4 ">
+          <Icon className="min-h-full min-w-full " width={30} />
         </div>
       )}
 
