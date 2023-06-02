@@ -33,13 +33,13 @@ export const Header = (props: { animate?: boolean }) => {
           />
         </Link>
 
-        <a href="https://github.com/celso-benedetti" target="_blank">
+        <a href="https://github.com/celsobenedetti" target="_blank">
           <SiGithub
             className="h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300"
             title="Github"
           />
         </a>
-        <a href="https://www.linkedin.com/in/celso-patiri/" target="_blank">
+        <a href="https://www.linkedin.com/in/celsobenedetti/" target="_blank">
           <SiLinkedin
             className="h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300"
             title="LinkedIn"
