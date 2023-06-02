@@ -99,19 +99,19 @@ export function ExperiencesSection({ id }: { id: string }) {
 export function ExperienceCard(props: Experience) {
   const { icon: Icon } = props;
   return (
-    <article className="mx-auto flex flex-col items-center space-y-7 overflow-auto break-normal rounded-2xl bg-base p-10">
+    <article className="mx-auto flex flex-col items-center rounded-2xl bg-base p-10">
       <MotionDiv
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="relative h-32 w-32 xl:h-[200px] xl:w-[200px]"
+        className="relative mx-auto h-32 w-32 xl:h-[200px] xl:w-[200px]"
       >
         <Image
           src={props.img}
           fill
           alt={props.title}
-          className="min-w-[10rem] self-stretch object-contain object-center lg:max-w-[150px]"
+          className="mx-auto min-w-[10rem] self-stretch object-contain object-center lg:max-w-[150px]"
         />
       </MotionDiv>
       {Icon && (

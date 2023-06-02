@@ -57,7 +57,7 @@ export const Header = (props: { animate?: boolean }) => {
       >
         <div className="group flex cursor-pointer items-center">
           <a
-            className="font-cal hidden text-sm uppercase text-gray-400 group-hover:text-gray-300 md:inline-flex"
+            className="font-cal text-sm uppercase text-gray-400 group-hover:text-gray-300 md:inline-flex"
             href="mailto:celsobenedetti2@gmail.com"
             target="#"
           >

@@ -151,7 +151,7 @@ const Home: NextPage = () => {
 
         <ExperiencesSection id="experience" />
 
-        <footer className="flex h-16 items-center justify-center gap-2 text-overlay">
+        <footer className="flex h-16 items-center justify-center gap-2 text-center text-overlay">
           Made with Next.js, Tailwindcss, Framer and Swiper.js
         </footer>
       </main>

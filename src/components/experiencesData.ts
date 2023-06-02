@@ -70,8 +70,8 @@ export const workExperiences: Experience[] = [
     ],
     period: ["2022/11", "present"],
     bullets: [
-      "I work at a global team, with overlaping responsibilities on web development, cloud, and DevOps.",
-      "Driving forth automation initiatives using tools like Ansible and GitLab CI to reduce manual effort and mitigate human error.",
+      "I work at a global team, mainly developing and maintaining microservices in Spring, with overlapping responsibilities on web development, cloud, and DevOps.",
+      "I'm Driving forth automation initiatives using tools like Ansible and GitLab CI to reduce manual effort and mitigate human error.",
       "Constantly seeking opportunities to learn and grow my skills as a team-member and engineer.",
     ],
   },
@@ -94,8 +94,8 @@ export const workExperiences: Experience[] = [
     period: ["2022/1", "2022/11"],
     bullets: [
       "Worked developing APIs for mobile apps using Rails and Node.js, as well as web application using Vue.js",
-      "Constributed to improving test coverage and reliability of backend applications",
-      "Agile team-work applying Scrum, pair progrraming and code reviews",
+      "Contributed to improving test coverage and reliability of backend applications",
+      "Agile team-work applying Scrum, pair programming and code reviews",
     ],
   },
 
@@ -107,7 +107,7 @@ export const workExperiences: Experience[] = [
     period: ["2019/2", "2021/6"],
     bullets: [
       "Worked on a search engine application using Java EE with Hibernate",
-      "Implemented a web crawler to index scientific papers and mathematical content into MySql",
+      "Implemented a web crawler to index scientific papers and mathematical content into MySQL",
       "Studyied the effects of stemming algorithms in Elasticsearch, and the basics of Git and Linux",
     ],
   },
@@ -140,7 +140,7 @@ export const educationExperiences: Experience[] = [
 
   {
     img: "https://uploads-ssl.webflow.com/62235d098ddf9185c2d74422/622c0e0746587f694e5361b5_Driven_pink-p-500.png",
-    title: "Driven Educattion",
+    title: "Driven Education",
     subtitle: "Full-Stack Web Development Bootcamp",
     technologiesIcons: [
       SiHtml5,
@@ -158,7 +158,7 @@ export const educationExperiences: Experience[] = [
     ],
     period: ["2022/1", "2022/10"],
     bullets: [
-      "+1200 hours of project-focued full-stack web development, with over 25 practical projects",
+      "+1200 hours of project-focused full-stack web development, with over 25 practical projects",
       "Learned web development from the ground up, from HTML, CSS and JS to Docker and AWS",
       "Development of behavioral skills and professional skills, such as teamwork, communication, and problem solving",
     ],
