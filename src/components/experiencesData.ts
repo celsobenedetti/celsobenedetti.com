@@ -91,7 +91,7 @@ export const workExperiences: Experience[] = [
       SiMysql,
       FaGitlab,
     ],
-    period: ["2022/1", "2022/11"],
+    period: ["2022/6", "2022/10"],
     bullets: [
       "Worked developing APIs for mobile apps using Rails and Node.js, as well as web application using Vue.js",
       "Contributed to improving test coverage and reliability of backend applications",

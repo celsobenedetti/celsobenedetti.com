@@ -1,7 +1,7 @@
 import "swiper/css/bundle";
 import "swiper/css/scrollbar";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCards, FreeMode, Mousewheel, Scrollbar } from "swiper";
@@ -42,7 +42,7 @@ export function ExperiencesSection({ id }: { id: string }) {
             text="Education"
           />
         </div>
-        <div className="mx-auto max-w-sm  overflow-hidden sm:max-w-xl sm:overflow-visible md:max-w-2xl md:p-10">
+        <div className="mx-auto max-w-sm overflow-x-auto sm:max-w-xl sm:overflow-visible md:max-w-2xl md:p-10">
           {isWorkSelected ? (
             <ExperienceCardSlider experiences={workExperiences} />
           ) : (
@@ -65,7 +65,7 @@ export function ExperiencesSection({ id }: { id: string }) {
       >
         {experiences.map((experience, i) => {
           return (
-            <SwiperSlide key={i} className="mr-5">
+            <SwiperSlide key={i} className=" overflow-auto">
               <ExperienceCard key={experience.title} {...experience} />
             </SwiperSlide>
           );
@@ -99,7 +99,7 @@ export function ExperiencesSection({ id }: { id: string }) {
 export function ExperienceCard(props: Experience) {
   const { icon: Icon } = props;
   return (
-    <article className="mx-auto flex flex-col items-center rounded-2xl bg-base p-10">
+    <article className="mx-auto flex flex-col items-center overflow-hidden rounded-2xl bg-base p-10">
       <MotionDiv
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
