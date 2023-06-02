@@ -13,6 +13,8 @@ const config = {
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
       { protocol: "https", hostname: "companieslogo.com" },
       { protocol: "https", hostname: "jera.com.br" },
+      { protocol: "https", hostname: "www.unifal-mg.edu.br" },
+      { protocol: "https", hostname: "uploads-ssl.webflow.com" },
     ],
   },
   /**

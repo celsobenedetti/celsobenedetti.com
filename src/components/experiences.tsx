@@ -18,12 +18,11 @@ import {
   SiVuedotjs,
 } from "react-icons/si";
 import { MotionDiv } from ".";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export interface Experience {
   note?: string;
   img: string;
-  url?: string;
   title: string;
   subtitle: string;
   technologiesIcons?: IconType[];
@@ -37,7 +36,6 @@ export const workExperiences: Experience[] = [
     img: "https://companieslogo.com/img/orig/DELL-f7f7f0be.png?t=1634108492",
     title: "Dell Technologies",
     subtitle: "Software Engineer 2",
-    url: "https://www.dell.com/en-us",
     technologiesIcons: [
       SiAngular,
       SiSpring,
@@ -61,7 +59,6 @@ export const workExperiences: Experience[] = [
     img: "https://jera.com.br/images/logo-facebook.png",
     title: "Jera Apps",
     subtitle: "Web Developer",
-    url: "https://jera.com.br/",
     technologiesIcons: [
       SiVuedotjs,
       SiRubyonrails,
@@ -79,14 +76,62 @@ export const workExperiences: Experience[] = [
   },
 ];
 
+export const educationExperiences: Experience[] = [
+  {
+    note: "Education",
+    img: "https://www.unifal-mg.edu.br/portal/wp-content/uploads/sites/52/2020/10/unifal-mg_logo_borda_02.png",
+    title: "Unifal",
+    subtitle: "Bachelor in Computer Science",
+    technologiesIcons: [
+      SiAngular,
+      SiSpring,
+      SiNodedotjs,
+      FaJava,
+      SiJavascript,
+      SiTypescript,
+      SiPython,
+      FaDocker,
+      SiVault,
+      SiAnsible,
+      FaGitlab,
+      SiMicrosoftsqlserver,
+    ],
+    period: ["2016", "2023"],
+    bullets: ["I do this", "And that", "And the other thing"],
+  },
+
+  {
+    note: "Education",
+    img: "https://uploads-ssl.webflow.com/62235d098ddf9185c2d74422/6255f8bd6ee68d19d7193a3c_gifdriven%20(1).gif",
+    title: "Driven Educattion",
+    subtitle: "Full-Stack Web Development Bootcamp",
+    technologiesIcons: [
+      SiVuedotjs,
+      SiRubyonrails,
+      SiNodedotjs,
+      SiRuby,
+      SiJavascript,
+      SiTypescript,
+      FaDocker,
+      SiJest,
+      SiMysql,
+      FaGitlab,
+    ],
+    period: ["2022/01", "2022/10"],
+    bullets: ["I do this", "And that", "And the other thing"],
+  },
+];
+
 export function ExperiencesSection({ id }: { id: string }) {
   const [isWorkSelected, setIsWorkSelected] = useState(true);
   const toggleSelection = () => setIsWorkSelected(!isWorkSelected);
 
-  const [selectedExperience, setSelectedExperience] = useState(0);
+  // TODO: implement section scrollY event to highlight experience cards
+  const sectionRef = useRef<HTMLElement>(null);
+  const sectionTopOffset = () => sectionRef.current?.offsetTop;
 
   return (
-    <section id={id}>
+    <section id={id} ref={sectionRef}>
       <MotionDiv
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -102,18 +147,43 @@ export function ExperiencesSection({ id }: { id: string }) {
           <ExperienceTypeButton isSelected={!isWorkSelected} text="Education" />
         </div>
         <div className="flex w-full snap-x snap-mandatory flex-col items-center gap-4 scrollbar-thin scrollbar-track-gray-400/20 md:p-10">
-          {workExperiences.map((experience, index) => (
-            <ExperienceCard
-              isSelected={index == selectedExperience}
-              onClick={() => setSelectedExperience(index)}
-              key={experience.title}
-              {...experience}
-            />
-          ))}
+          {isWorkSelected ? <WorkExperiences /> : <EducationExperiences />}
         </div>
       </MotionDiv>
     </section>
   );
+
+  function WorkExperiences() {
+    return (
+      <>
+        {workExperiences.map((experience) => {
+          return (
+            <ExperienceCard
+              isSelected={true} /* TODO: implement select on scroll: */
+              key={experience.title}
+              {...experience}
+            />
+          );
+        })}
+      </>
+    );
+  }
+
+  function EducationExperiences() {
+    return (
+      <>
+        {educationExperiences.map((experience) => {
+          return (
+            <ExperienceCard
+              isSelected={true} /* TODO: implement select on scroll: */
+              key={experience.title}
+              {...experience}
+            />
+          );
+        })}
+      </>
+    );
+  }
 
   type ExperienceType = "Work" | "Education";
 
@@ -141,11 +211,12 @@ export function ExperiencesSection({ id }: { id: string }) {
 }
 
 export function ExperienceCard(
-  props: Experience & { isSelected: boolean; onClick: () => void }
+  props: Experience & {
+    isSelected: boolean;
+  }
 ) {
   return (
     <article
-      onClick={props.onClick}
       className={`content relative flex w-full flex-shrink-0 snap-center flex-col items-center space-y-7  break-normal rounded-2xl bg-mantle p-10  transition-opacity duration-200 hover:opacity-100 md:w-[600px] xl:w-[900px] ${
         props.isSelected ? "" : "opacity-40"
       }`}
@@ -157,14 +228,12 @@ export function ExperienceCard(
         viewport={{ once: true }}
         className="relative h-32 w-32 xl:h-[200px] xl:w-[200px]"
       >
-        <a href={props.url} target="_blank">
-          <Image
-            src={props.img}
-            fill
-            alt={props.title}
-            className="cursor-pointer rounded-full object-contain object-center"
-          />
-        </a>
+        <Image
+          src={props.img}
+          fill
+          alt={props.title}
+          className="min-w-32 object-contain object-center "
+        />
       </MotionDiv>
 
       {props.note && (
