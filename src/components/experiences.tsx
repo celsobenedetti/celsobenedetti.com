@@ -101,7 +101,7 @@ export const educationExperiences: Experience[] = [
     icon: FaUniversity,
     img: "https://www.unifal-mg.edu.br/portal/wp-content/uploads/sites/52/2020/10/unifal-mg_logo_borda_02.png",
     title: "Universidade Federal de Alfenas",
-    subtitle: "Bachelor in Computer Science",
+    subtitle: "Bachelor's in Computer Science",
     technologiesIcons: [
       SiC,
       GiProcessor,
@@ -232,11 +232,7 @@ export function ExperienceCard({
   ...props
 }: Experience & { isSelected: boolean }) {
   return (
-    <article
-      className={`content relative flex w-full flex-shrink-0 snap-center flex-col items-center space-y-7  break-normal rounded-2xl bg-mantle p-10  transition-opacity duration-200 hover:opacity-100 md:w-[600px] xl:w-[900px] ${
-        props.isSelected ? "" : "opacity-40"
-      }`}
-    >
+    <article className="content relative flex w-full flex-shrink-0 snap-center flex-col items-center space-y-7  break-normal rounded-2xl bg-mantle p-10  transition-opacity duration-200 hover:opacity-100 md:w-[600px] xl:w-[700px]">
       <MotionDiv
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -253,8 +249,8 @@ export function ExperienceCard({
       </MotionDiv>
 
       {Icon && (
-        <div className="absolute right-10 top-0 flex h-10 w-10 rounded-lg p-2 md:p-4 ">
-          <Icon className="min-h-full min-w-full " width={30} />
+        <div className="absolute right-10 top-0 flex h-10 w-10 rounded-lg p-2 md:h-20 md:w-20">
+          <Icon className="min-h-full min-w-full" />
         </div>
       )}
 
