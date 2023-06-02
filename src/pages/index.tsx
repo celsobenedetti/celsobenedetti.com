@@ -76,7 +76,7 @@ const Home: NextPage = () => {
                       setAnchor(section);
                     }}
                   >
-                    <button className="text-sub-text rounded-full border border-base px-6 py-2 text-sm uppercase tracking-widest transition-all hover:border-secondary/40 hover:text-secondary/40">
+                    <button className="text-sub-text rounded-full border border-crust px-6 py-2 text-sm uppercase tracking-widest transition-all hover:border-secondary/40 hover:text-secondary/40">
                       {section}
                     </button>
                   </Link>

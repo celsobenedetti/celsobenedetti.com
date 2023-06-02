@@ -1,3 +1,6 @@
+import "swiper/css/bundle";
+// import "swiper/css/effect-cards";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import {
   FaAws,
@@ -36,11 +39,11 @@ import { ImDatabase } from "react-icons/im";
 import { TbBinaryTree, TbLambda, TbMathIntegralX } from "react-icons/tb";
 import { GiProcessor } from "react-icons/gi";
 import { LuNetwork } from "react-icons/lu";
-import { AiOutlineFieldBinary } from "react-icons/ai";
 
 import { MotionDiv } from ".";
 import { useRef, useState } from "react";
 import { SlGraph } from "react-icons/sl";
+import { EffectCards, Pagination, Scrollbar } from "swiper";
 
 export interface Experience {
   icon?: IconType;
@@ -142,7 +145,6 @@ export const educationExperiences: Experience[] = [
 
 export function ExperiencesSection({ id }: { id: string }) {
   const [isWorkSelected, setIsWorkSelected] = useState(true);
-  const toggleSelection = () => setIsWorkSelected(!isWorkSelected);
 
   // TODO: implement section scrollY event to highlight experience cards
   const sectionRef = useRef<HTMLElement>(null);
@@ -153,52 +155,60 @@ export function ExperiencesSection({ id }: { id: string }) {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
-        className="relative mx-auto flex min-h-screen max-w-full flex-col items-center gap-12 overflow-hidden px-4 py-24 text-left md:px-10"
+        className="flex min-h-screen max-w-full flex-col items-center gap-12 px-4 py-24 text-left md:px-10"
       >
         <h3 className="font-cal text-2xl uppercase tracking-[15px] text-subtext md:tracking-[20px]">
           Experience
         </h3>
 
         <div className="flex w-2/3 justify-evenly ">
-          <ExperienceTypeButton isSelected={isWorkSelected} text="Work" />
-          <ExperienceTypeButton isSelected={!isWorkSelected} text="Education" />
+          <ExperienceTypeButton
+            isSelected={isWorkSelected}
+            onClick={() => setIsWorkSelected(true)}
+            text="Work"
+          />
+          <ExperienceTypeButton
+            isSelected={!isWorkSelected}
+            onClick={() => setIsWorkSelected(false)}
+            text="Education"
+          />
         </div>
-        <div className="flex w-full snap-x snap-mandatory flex-col items-center gap-4 scrollbar-thin scrollbar-track-gray-400/20 md:p-10">
-          {isWorkSelected ? <WorkExperiences /> : <EducationExperiences />}
+        <div className="mx-auto max-w-sm  sm:max-w-xl md:max-w-2xl md:p-10">
+          {isWorkSelected ? (
+            <ExperienceCardSlider experiences={workExperiences} />
+          ) : (
+            <ExperienceCardSlider experiences={educationExperiences} />
+          )}
         </div>
       </MotionDiv>
     </section>
   );
 
-  function WorkExperiences() {
+  function ExperienceCardSlider({
+    experiences,
+  }: {
+    experiences: Experience[];
+  }) {
     return (
-      <>
-        {workExperiences.map((experience) => {
+      <Swiper
+        effect={"cards"}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        grabCursor={true}
+        modules={[EffectCards]}
+      >
+        {experiences.map((experience, i) => {
           return (
-            <ExperienceCard
-              isSelected={true} /* TODO: implement select on scroll: */
-              key={experience.title}
-              {...experience}
-            />
+            <SwiperSlide key={i} className="mr-5">
+              <ExperienceCard
+                isSelected={true} /* TODO: implement select on scroll: */
+                key={experience.title}
+                {...experience}
+              />
+            </SwiperSlide>
           );
         })}
-      </>
-    );
-  }
-
-  function EducationExperiences() {
-    return (
-      <>
-        {educationExperiences.map((experience) => {
-          return (
-            <ExperienceCard
-              isSelected={true} /* TODO: implement select on scroll: */
-              key={experience.title}
-              {...experience}
-            />
-          );
-        })}
-      </>
+      </Swiper>
     );
   }
 
@@ -207,18 +217,20 @@ export function ExperiencesSection({ id }: { id: string }) {
   function ExperienceTypeButton({
     isSelected,
     text,
+    onClick,
   }: {
     isSelected: boolean;
     text: ExperienceType;
+    onClick: () => void;
   }) {
     return (
       <button
-        onClick={toggleSelection}
+        onClick={onClick}
         className={`border-b  px-2 py-2 text-sm uppercase tracking-widest  transition-all
                             hover:border-text/40 hover:text-text/40  ${
                               isSelected
                                 ? "border-text/70 text-text"
-                                : "border-base text-subtext"
+                                : "border-crust text-subtext"
                             }`}
       >
         {text}
@@ -232,7 +244,7 @@ export function ExperienceCard({
   ...props
 }: Experience & { isSelected: boolean }) {
   return (
-    <article className="content relative flex w-full flex-shrink-0 snap-center flex-col items-center space-y-7  break-normal rounded-2xl bg-mantle p-10  transition-opacity duration-200 hover:opacity-100 md:w-[600px] xl:w-[700px]">
+    <article className="mx-auto flex flex-col items-center space-y-7 overflow-auto break-normal rounded-2xl bg-base p-10">
       <MotionDiv
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -247,25 +259,32 @@ export function ExperienceCard({
           className="min-w-[10rem] self-stretch object-contain object-center"
         />
       </MotionDiv>
-
       {Icon && (
-        <div className="absolute right-10 top-0 flex h-10 w-10 rounded-lg p-2 md:h-20 md:w-20">
+        <div className=" absolute right-10 top-0 flex h-10 w-10 rounded-lg p-2 ">
           <Icon className="min-h-full min-w-full" />
         </div>
       )}
-
       <div className="px1 flex min-w-full max-w-full flex-col md:px-10">
         <h2 className="text-3xl font-medium md:text-4xl">{props.title}</h2>
         <p className="mt-1 text-lg font-bold md:text-2xl">{props.subtitle}</p>
-        <div className="scroll scrollbar-thumb-accent-500/80 z-1 my-2 flex w-full shrink-0 space-x-2 overflow-auto pb-2 scrollbar-thin scrollbar-track-gray-400/20">
+        {/* <Swiper className="z-1 my-2 flex w-full shrink-0 space-x-2 overflow-auto pb-2 scrollbar-thin scrollbar-track-gray-400/20"> */}
+        <Swiper
+          nested={true}
+          slidesPerView={10}
+          breakpoints={{
+            640: { slidesPerView: 11 },
+          }}
+          modules={[Scrollbar]}
+          className="z-1 my-2 flex w-full shrink-0 space-x-2 overflow-auto pb-2 scrollbar-thin scrollbar-track-gray-400/20"
+        >
           {props.technologiesIcons?.map((Icon, index) => (
-            <div key={index}>
+            <SwiperSlide key={index}>
               <Icon className="h-6 w-6 shrink-0 md:h-8 md:w-8" />
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
 
-        <p className="py-5 text-sm uppercase text-gray-300 md:text-base">
+        <p className="py-5 text-sm uppercase text-gray-300 md:text-crust">
           Start: {props.period[0]} | End: {props.period[1]}
         </p>
 
