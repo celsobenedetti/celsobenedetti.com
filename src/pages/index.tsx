@@ -116,8 +116,8 @@ const Home: NextPage = () => {
               <div className="space-y-4 px-0 py-24 md:px-10 md:py-0 md:pr-20">
                 <p>
                   I&apos;m a software engineer from Brazil. I&apos;m passionate
-                  about learning and driven to becoming ever more knowledgeable
-                  in my craft.
+                  about technology, constant learning, and driven to becoming
+                  ever more knowledgeable in my craft.
                 </p>
 
                 <p>
@@ -127,12 +127,21 @@ const Home: NextPage = () => {
                   development.
                 </p>
                 <p>
-                  Wanna chat?{" "}
+                  Wanna chat? Hit me up on{" "}
                   <a
-                    href="#final-words"
+                    href="https://www.linkedin.com/in/celsobenedetti/"
+                    target="#"
                     className="underline decoration-secondary decoration-2 underline-offset-4"
                   >
-                    Book my Cal.com!
+                    LinkedIn
+                  </a>{" "}
+                  or{" "}
+                  <a
+                    href="https://discord.com/users/Celsola#0141"
+                    target="#"
+                    className="underline decoration-secondary decoration-2 underline-offset-4"
+                  >
+                    Discord
                   </a>
                 </p>
               </div>

@@ -32,10 +32,12 @@ export function ExperiencesSection({ id }: { id: string }) {
 
         <div className="flex w-2/3 justify-evenly ">
           <ExperienceTypeButton
+            isSelected={isWorkSelected}
             onClick={() => setIsWorkSelected(true)}
             text="Work"
           />
           <ExperienceTypeButton
+            isSelected={!isWorkSelected}
             onClick={() => setIsWorkSelected(false)}
             text="Education"
           />
@@ -75,12 +77,18 @@ export function ExperiencesSection({ id }: { id: string }) {
   function ExperienceTypeButton(props: {
     text: ExperienceType;
     onClick: () => void;
+    isSelected: boolean;
   }) {
-    const { text, onClick } = props;
+    const { text, onClick, isSelected } = props;
     return (
       <button
         onClick={onClick}
-        className="border-b  border-text/70 px-2 py-2 text-sm uppercase  tracking-widest text-text transition-all  hover:border-text/40 hover:text-text/40"
+        className={`border-b  px-2 py-2 text-sm uppercase tracking-widest  transition-all
+                           hover:border-text/40 hover:text-text/40  ${
+                             isSelected
+                               ? "border-text/70 text-text"
+                               : "border-crust text-subtext"
+                           }`}
       >
         {text}
       </button>
@@ -147,7 +155,7 @@ export function ExperienceCard(props: Experience) {
           <ul>
             {props.bullets.map((bullet) => (
               <SwiperSlide key={bullet}>
-                <li className="py-2">{bullet}</li>
+                <li className="py-2 text-[17px]">{bullet}</li>
               </SwiperSlide>
             ))}
           </ul>

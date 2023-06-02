@@ -56,10 +56,13 @@ export const Header = (props: { animate?: boolean }) => {
         className="flex items-center"
       >
         <div className="group flex cursor-pointer items-center">
-          <SlEnvolope className="h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors group-hover:fill-gray-300" />
-          <span className="font-cal hidden text-sm uppercase text-gray-400 group-hover:text-gray-300 md:inline-flex">
-            Contact
-          </span>
+          <a
+            className="font-cal hidden text-sm uppercase text-gray-400 group-hover:text-gray-300 md:inline-flex"
+            href="mailto:celsobenedetti2@gmail.com"
+            target="#"
+          >
+            <SlEnvolope className="h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors group-hover:fill-gray-300" />
+          </a>
         </div>
       </MotionDiv>
     </header>
