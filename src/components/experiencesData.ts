@@ -70,7 +70,7 @@ export const workExperiences: Experience[] = [
     ],
     period: ["2022/11", "present"],
     bullets: [
-      "I work at a global team, mainly developing and maintaining microservices in Spring, with overlapping responsibilities on web development, cloud, and DevOps.",
+      "I work at a global team, mainly developing and maintaining microservices in Spring, with overlapping responsibilities in web development, cloud, and DevOps.",
       "I'm Driving forth automation initiatives using tools like Ansible and GitLab CI to reduce manual effort and mitigate human error.",
       "Constantly seeking opportunities to learn and grow my skills as a team-member and engineer.",
     ],
@@ -134,7 +134,7 @@ export const educationExperiences: Experience[] = [
     period: ["2016", "2023"],
     bullets: [
       "Learned all about low level programming, computer architecture, operating systems, compilers, data structures and algorithms, programming paradigms, algorithm design and analysis, databases, networking.",
-      "Studied the effects of stemming algorithms on search engines like Elasticsearch as my term paper",
+      "Researched the effects of stemming algorithms on search engines like Elasticsearch as my term paper",
     ],
   },
 

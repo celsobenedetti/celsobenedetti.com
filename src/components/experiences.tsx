@@ -155,7 +155,7 @@ export function ExperienceCard(props: Experience) {
           <ul>
             {props.bullets.map((bullet) => (
               <SwiperSlide key={bullet}>
-                <li className="py-2 text-[17px]">{bullet}</li>
+                <li className="py-2 pr-1 text-[17px]">{bullet}</li>
               </SwiperSlide>
             ))}
           </ul>
