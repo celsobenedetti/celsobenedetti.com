@@ -7,6 +7,7 @@ import { Header } from "~/components/header";
 import { MotionDiv } from "~/components";
 import setAnchor from "~/setAnchor";
 import { ExperiencesSection } from "~/components/experiences";
+import { SiGithub } from "react-icons/si";
 
 const Home: NextPage = () => {
   return (
@@ -151,8 +152,17 @@ const Home: NextPage = () => {
 
         <ExperiencesSection id="experience" />
 
-        <footer className="flex h-16 items-center justify-center gap-2 text-center text-overlay">
+        <footer className="relative flex h-16 items-center justify-center gap-2 text-center text-overlay">
           Made with Next.js, Tailwindcss, Framer and Swiper.js
+          <a
+            href="https://github.com/celsobenedetti/celsobenedetti.dev"
+            target="_blank"
+          >
+            <SiGithub
+              className="hidden h-9 w-9 cursor-pointer fill-overlay p-2 text-2xl transition-colors hover:fill-gray-400 sm:relative md:block"
+              title="Github"
+            />
+          </a>
         </footer>
       </main>
     </>
