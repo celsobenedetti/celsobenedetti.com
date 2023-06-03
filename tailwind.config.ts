@@ -3,9 +3,6 @@ import { type Config } from "tailwindcss";
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    bg: {
-      banana: "#FFF",
-    },
     extend: {
       colors: {
         crust: "#232634",

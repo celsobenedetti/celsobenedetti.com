@@ -42,7 +42,7 @@ export function ExperiencesSection({ id }: { id: string }) {
             text="Education"
           />
         </div>
-        <div className="mx-auto max-w-sm overflow-x-auto sm:max-w-xl sm:overflow-visible md:max-w-2xl md:p-10">
+        <div className="mx-auto max-w-sm sm:max-w-xl sm:overflow-visible md:max-w-2xl md:p-10">
           {isWorkSelected ? (
             <ExperienceCardSlider experiences={workExperiences} />
           ) : (
@@ -105,23 +105,23 @@ export function ExperienceCard(props: Experience) {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="relative mx-auto h-32 w-32 xl:h-[200px] xl:w-[200px]"
+        className="relative mx-auto h-32 w-full xl:h-[200px] xl:w-[200px]"
       >
         <Image
           src={props.img}
           fill
           alt={props.title}
-          className="mx-auto min-w-[10rem] self-stretch object-contain object-center lg:max-w-[150px]"
+          className="mx-auto min-w-[10rem] max-w-[10px] self-stretch object-contain object-center lg:max-w-[150px]"
         />
       </MotionDiv>
       {Icon && (
-        <div className=" absolute right-10 top-0 flex h-10 w-10 rounded-lg p-2 ">
+        <div className=" absolute right-10 top-0 mt-6 flex h-10 w-10 rounded-lg ">
           <Icon className="min-h-full min-w-full" />
         </div>
       )}
       <div className="px1 flex min-w-full max-w-full flex-col md:px-10">
         <h2 className="text-3xl font-medium md:text-4xl">{props.title}</h2>
-        <p className="mt-1 text-lg font-bold md:text-2xl">{props.subtitle}</p>
+        <h3 className="mt-1 text-lg font-bold md:text-2xl">{props.subtitle}</h3>
         <Swiper
           nested={true}
           slidesPerView={10}
