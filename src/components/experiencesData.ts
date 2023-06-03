@@ -70,8 +70,8 @@ export const workExperiences: Experience[] = [
     ],
     period: ["2022/11", "present"],
     bullets: [
-      "I work at a global team, mainly developing and maintaining microservices in Spring, with overlapping responsibilities in web development, cloud, and DevOps.",
-      "I'm Driving forth automation initiatives using tools like Ansible and GitLab CI to reduce manual effort and mitigate human error.",
+      "I work at a global team, mainly developing and maintaining microservices in Spring, with overlapping responsibilities in web development, cloud and DevOps.",
+      "I'm actively driving forth automation initiatives across multiple products, leveraging tools like Ansible, Docker and GitLab CI.",
       "Constantly seeking opportunities to learn and grow my skills as a team-member and engineer.",
     ],
   },
